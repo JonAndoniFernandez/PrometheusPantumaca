@@ -7,7 +7,7 @@ public class HumanNeeded : MonoBehaviour
 
     public bool activatedBonfire = false;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.tag == "Player" && activatedBonfire == false)
         {

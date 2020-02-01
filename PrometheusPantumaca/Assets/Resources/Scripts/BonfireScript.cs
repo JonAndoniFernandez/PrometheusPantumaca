@@ -10,7 +10,7 @@ public class BonfireScript : MonoBehaviour
     public Vector3 targetScale;
     public bool grabbed = false;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay(Collider collision)
     {
         if(collision.tag == "Player" && Input.GetButton("Fire1") && !grabbed)
         {
@@ -23,11 +23,11 @@ public class BonfireScript : MonoBehaviour
         //Vector2 target = new Vector2(playerTarget.position.x, playerTarget.position.y + 1);
         targetScale = new Vector3(0.75f, 0.75f, 1);
 
-        while (Vector2.Distance(transform.position, playerTarget.position) > 0.2)
+        while (Vector3.Distance(transform.position, playerTarget.position) > 0.2)
         {
             //target = new Vector2(playerTarget.position.x, playerTarget.position.y + 1);
 
-            transform.position = Vector2.Lerp(transform.position, playerTarget.position, Time.deltaTime * clampSpeed);
+            transform.position = Vector3.Lerp(transform.position, playerTarget.position, Time.deltaTime * clampSpeed);
             transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * clampSpeed);
             yield return null;
         }
@@ -43,6 +43,6 @@ public class BonfireScript : MonoBehaviour
     private void Update()
     {
         if(playerDetected != null)
-            transform.position = Vector2.Lerp(transform.position, playerDetected.position, Time.deltaTime * clampSpeed * 2);
+            transform.position = Vector3.Lerp(transform.position, playerDetected.position, Time.deltaTime * clampSpeed * 2);
     }
 }
