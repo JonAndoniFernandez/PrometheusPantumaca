@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/SceneCharacter.unity
+- path: Assets/Scenes/Blasco/PruebasBlasco.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
