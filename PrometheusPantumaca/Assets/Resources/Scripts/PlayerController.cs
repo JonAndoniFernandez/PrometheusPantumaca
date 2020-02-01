@@ -5,14 +5,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public float MOVEMENT_BASE_SPEED = 10;
 
-    public float axisY, axisX;
+    public float speed;
+    Rigidbody2D rb;
+    public Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        movement = new Vector2(0, 0);
     }
 
     // Update is called once per frame
@@ -21,11 +24,16 @@ public class PlayerController : MonoBehaviour
         ControlarMovimiento();
     }
 
+    private void FixedUpdate()
+    {
+        rb.velocity = movement;
+    }
+
     private void ControlarMovimiento()
     {
-        axisY = Input.GetAxis("Vertical");
-        axisX = Input.GetAxis("Horizontal");
-
-        Debug.Log("X: " + axisX + " Y: " + axisY);
+        Vector2 input2D = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        speed = Mathf.Clamp(input2D.magnitude, 0, 1);
+        input2D.Normalize();
+        movement = input2D * speed * MOVEMENT_BASE_SPEED;        
     }
 }
