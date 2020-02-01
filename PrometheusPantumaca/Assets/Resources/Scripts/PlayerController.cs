@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float MOVEMENT_BASE_SPEED = 10;
 
+
+    public bool grabingBonfire = false;
     public float speed;
     Rigidbody2D rb;
     public Vector2 movement;
