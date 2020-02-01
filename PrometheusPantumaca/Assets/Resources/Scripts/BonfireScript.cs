@@ -21,19 +21,21 @@ public class BonfireScript : MonoBehaviour
     IEnumerator GrabbingBonfire(Transform playerTarget)
     {
         //Vector2 target = new Vector2(playerTarget.position.x, playerTarget.position.y + 1);
-        targetScale = new Vector3(0.75f, 0.75f, 1);
+        targetScale = new Vector3 (4.5F, 4.5F, 4.5F);
 
         while (Vector3.Distance(transform.position, playerTarget.position) > 0.2)
         {
             //target = new Vector2(playerTarget.position.x, playerTarget.position.y + 1);
 
             transform.position = Vector3.Lerp(transform.position, playerTarget.position, Time.deltaTime * clampSpeed);
-            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * clampSpeed);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.488f, 0.488f, 0), Time.deltaTime * clampSpeed);
+            transform.GetChild(0).localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * clampSpeed);
             yield return null;
         }
 
         transform.position = playerTarget.position;
-        transform.localScale = targetScale;
+        transform.GetChild(0).localScale = targetScale;
+        transform.localScale = new Vector3(0.488f, 0.488f, 0);
         playerTarget.GetComponentInParent<PlayerController>().grabbingBonfire = true;
         playerDetected = playerTarget;
         grabbed = true;
