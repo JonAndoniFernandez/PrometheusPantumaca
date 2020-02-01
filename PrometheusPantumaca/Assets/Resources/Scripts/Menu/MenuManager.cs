@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puntoSeleccionador.position = new Vector3(opcionesMenu[0].transform.position.x - 150, opcionesMenu[0].transform.position.y, opcionesMenu[0].transform.position.z) ;
+        puntoSeleccionador.position = new Vector3(opcionesMenu[0].transform.right.x, opcionesMenu[0].transform.position.y, opcionesMenu[0].transform.position.z);
     }
 
     // Update is called once per frame
@@ -47,13 +47,13 @@ public class MenuManager : MonoBehaviour
 
         if (opcionSeleccionada == 0)
         {
-            puntoSeleccionador.position = new Vector3(opcionesMenu[0].transform.position.x - 150, opcionesMenu[0].transform.position.y, opcionesMenu[0].transform.position.z);
+            puntoSeleccionador.position = new Vector3(opcionesMenu[0].transform.right.x, opcionesMenu[0].transform.position.y, opcionesMenu[0].transform.position.z);
         } else if(opcionSeleccionada == 1)
         {
-            puntoSeleccionador.position = new Vector3(opcionesMenu[1].transform.position.x - 150, opcionesMenu[1].transform.position.y, opcionesMenu[1].transform.position.z);
+            puntoSeleccionador.position = new Vector3(opcionesMenu[1].transform.right.x, opcionesMenu[1].transform.position.y, opcionesMenu[1].transform.position.z);
         }
         else if(opcionSeleccionada == 2){
-            puntoSeleccionador.position = new Vector3(opcionesMenu[2].transform.position.x - 150, opcionesMenu[2].transform.position.y, opcionesMenu[2].transform.position.z);
+            puntoSeleccionador.position = new Vector3(opcionesMenu[2].transform.right.x, opcionesMenu[2].transform.position.y, opcionesMenu[2].transform.position.z);
         }
 
         
