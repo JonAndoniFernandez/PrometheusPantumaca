@@ -10,12 +10,29 @@ public class BonfireScript : MonoBehaviour
     public Transform playerDetected;
     public Vector3 targetScale;
     public bool grabbed = false;
+    private GameObject pressToInteractUI;
+
+    private void Start()
+    {
+        pressToInteractUI = transform.GetChild(1).gameObject;
+    }
 
     private void OnTriggerStay(Collider collision)
     {
-        if(collision.tag == "Player" && Input.GetButton("Fire1") && !grabbed)
+        if(collision.tag == "Player" && !grabbed)
         {
-            StartCoroutine( GrabbingBonfire(collision.transform.GetChild(0)));
+            pressToInteractUI.active = true;
+
+            if(Input.GetButton("Fire1"))
+                StartCoroutine( GrabbingBonfire(collision.transform.GetChild(0)));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player" && !grabbed)
+        {
+            pressToInteractUI.active = false;
         }
     }
 
@@ -30,15 +47,16 @@ public class BonfireScript : MonoBehaviour
 
             transform.position = Vector3.Lerp(transform.position, playerTarget.position, Time.deltaTime * clampSpeed);
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.488f, 0.488f, 0), Time.deltaTime * clampSpeed);
-            transform.GetChild(0).localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * clampSpeed);
+            transform.GetChild(0).localScale = Vector3.Lerp(transform.localScale, new Vector3 (31, 31 ,31 ), Time.deltaTime * clampSpeed);
             yield return null;
         }
 
         transform.position = playerTarget.position;
-        transform.GetChild(0).localScale = targetScale;
+        transform.GetChild(0).localScale = new Vector3(31, 31, 31);
         transform.localScale = new Vector3(0.488f, 0.488f, 0);
         playerTarget.GetComponentInParent<PlayerController>().grabbingBonfire = true;
         playerDetected = playerTarget;
+        pressToInteractUI.active = false;
         grabbed = true;
     }
 

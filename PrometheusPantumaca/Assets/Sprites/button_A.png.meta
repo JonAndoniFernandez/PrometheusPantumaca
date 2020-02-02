@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: d4f5f8cc7d1f15b449e9e8311077ad9d
+guid: f96b4fe3805af8b4cb1ee622594d3847
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4987901684691990599
-    second: flame_0
+      213: 3772382588069208589
+    second: button_A_0
   - first:
-      213: 7090429627734957284
-    second: flame_1
-  - first:
-      213: -5377001312778991831
-    second: flame_2
+      213: -342354848948383991
+    second: button_A_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -119,64 +116,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flame_0
+      name: button_A_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 17
+        width: 12
+        height: 15
+      alignment: 9
+      pivot: {x: 0.49769342, y: -0.00005607605}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74873aab726983540800000000000000
-      internalID: 4987901684691990599
+      spriteID: d02ebb61af13a5430800000000000000
+      internalID: 3772382588069208589
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flame_1
+      name: button_A_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 1
+        width: 12
+        height: 13
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.0015384692}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ec1c020e24466260800000000000000
-      internalID: 7090429627734957284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flame_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 927cffa6bcd0165b0800000000000000
-      internalID: -5377001312778991831
+      spriteID: 90f8c492416bf3bf0800000000000000
+      internalID: -342354848948383991
       vertices: []
       indices: 
       edges: []
