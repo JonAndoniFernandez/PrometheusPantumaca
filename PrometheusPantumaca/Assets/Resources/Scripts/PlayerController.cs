@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 movement;
     public bool walk;
     public Animator anim;
-
+    bool SecureZone = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,5 +53,15 @@ public class PlayerController : MonoBehaviour
         speed = Mathf.Clamp(input2D.magnitude, 0, 1);
         input2D.Normalize();
         movement = input2D * speed * MOVEMENT_BASE_SPEED;
+    }
+
+    public bool GetZoneSecure()
+    {
+        return SecureZone;
+    }
+
+    public void SetZoneSecure(bool newZone)
+    {
+        SecureZone = newZone;
     }
 }

@@ -11,11 +11,14 @@ public class HumanNeeded : MonoBehaviour
     public Transform pressToInteractUI;
     PlayerController player = null;
 
+    SphereCollider Collider;
+
 
     private void Start()
     {
         Light2D.lightType = UnityEngine.Experimental.Rendering.Universal.Light2D.LightType.Parametric;
         pressToInteractUI = transform.GetChild(1);
+        Collider = GetComponent<SphereCollider>();
     }
 
     private void OnTriggerStay(Collider collision)
@@ -30,6 +33,13 @@ public class HumanNeeded : MonoBehaviour
                     activarAntorchaHumana();
             }
         }
+
+        if (collision.tag == "Player" && activatedBonfire)
+        {
+            player = collision.GetComponent<PlayerController>();
+
+            player.SetZoneSecure(true);
+        }
     }
 
     private void OnTriggerExit(Collider collision)
@@ -37,14 +47,30 @@ public class HumanNeeded : MonoBehaviour
         if(collision.tag == "Player")
         {
             pressToInteractUI.gameObject.active = false;
+            player = collision.GetComponent<PlayerController>();
+
+            player.SetZoneSecure(false);
         }
     }
 
     void activarAntorchaHumana()
     {
+        Collider.radius = 1f;
         activatedBonfire = true;
         GetComponent<Renderer>().material.color = Color.blue;
         pressToInteractUI.gameObject.active = false;
+        StartCoroutine("HumanLightAnim");
         Light2D.color = new Color(0.5f, 1f, 1f, 1f);
+    }
+
+    IEnumerator HumanLightAnim()
+    {
+        float clampSpeed = 1.5f;
+
+        while(Light2D.transform.localScale.x < .4f)
+        {
+            Light2D.transform.localScale = Vector3.Lerp(Light2D.transform.localScale, new Vector3(1, 1, 0), Time.deltaTime * clampSpeed);
+            yield return null;
+        }
     }
 }
