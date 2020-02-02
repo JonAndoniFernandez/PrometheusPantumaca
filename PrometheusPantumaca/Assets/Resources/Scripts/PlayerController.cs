@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public bool walk, death = false;
     public Animator anim;
     bool SecureZone = false;
+
+    [SerializeField] GameObject DeathAudio;
+    [SerializeField] GameObject StepAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            ControlarMovimiento();
+        if (anim.GetBool("Walk"))
+        {
+            StepAudio.active = true;
+        } else
+        {
+            StepAudio.active = false;
+        }
+
+        ControlarMovimiento();
     }
 
     private void FixedUpdate()
@@ -33,8 +44,10 @@ public class PlayerController : MonoBehaviour
         if (!death)
             rb.velocity = movement;
 
-        if (movement != new Vector3(0, 0, 0))
+        if (movement != Vector3.zero)
+        {
             anim.SetBool("Walk", true);
+        }
         else
             anim.SetBool("Walk", false);
 
@@ -64,5 +77,10 @@ public class PlayerController : MonoBehaviour
     public void SetZoneSecure(bool newZone)
     {
         SecureZone = newZone;
+    }
+
+    public void EmitDeathSound()
+    {
+        DeathAudio.active = true;
     }
 }

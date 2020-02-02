@@ -12,10 +12,12 @@ public class BonfireScript : MonoBehaviour
     public bool grabbed = false;
     private GameObject pressToInteractUI;
     [SerializeField] GameObject lightPlayer;
+    AudioSource AudioSource;
 
     private void Start()
     {
         pressToInteractUI = transform.GetChild(1).gameObject;
+        AudioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerStay(Collider collision)
@@ -24,8 +26,11 @@ public class BonfireScript : MonoBehaviour
         {
             pressToInteractUI.active = true;
 
-            if(Input.GetButton("Fire1"))
-                StartCoroutine( GrabbingBonfire(collision.transform.GetChild(0)));
+            if (Input.GetButton("Fire1"))
+            {
+                AudioSource.Play();
+                StartCoroutine(GrabbingBonfire(collision.transform.GetChild(0)));
+            }
         }
     }
 

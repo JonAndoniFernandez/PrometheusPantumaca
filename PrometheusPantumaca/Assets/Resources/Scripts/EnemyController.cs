@@ -72,7 +72,8 @@ public class EnemyController : MonoBehaviour
         {
             if(playerController.grabbingBonfire && !playerController.GetZoneSecure())
             {
-                playerController.GetComponent<PlayerController>().death = true;
+                playerController.death = true;
+                playerController.EmitDeathSound();
                 playerController.rb.velocity = Vector3.zero;
                 GameOver gameOver = FindObjectOfType<GameOver>();
                 gameOver.PlayerGameOver();
