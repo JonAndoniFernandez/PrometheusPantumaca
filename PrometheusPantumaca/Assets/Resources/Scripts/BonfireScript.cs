@@ -11,6 +11,8 @@ public class BonfireScript : MonoBehaviour
     public Vector3 targetScale;
     public bool grabbed = false;
     private GameObject pressToInteractUI;
+    [SerializeField]
+    private GameObject lightPlayer;
 
     private void Start()
     {
@@ -58,6 +60,7 @@ public class BonfireScript : MonoBehaviour
         playerDetected = playerTarget;
         pressToInteractUI.active = false;
         grabbed = true;
+        lightPlayer.SetActive(false);
     }
 
 

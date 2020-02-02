@@ -665,7 +665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &498997431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,6 +3046,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625082044}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1730981718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4588730826518036486, guid: 843c02021049ac041879bb0689171552,
+    type: 3}
+  m_PrefabInstance: {fileID: 4588730826803152176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1752571106
 GameObject:
   m_ObjectHideFlags: 0
@@ -3477,7 +3483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1818228820
 Transform:
   m_ObjectHideFlags: 0
@@ -4501,6 +4507,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prometheus
       objectReference: {fileID: 0}
+    - target: {fileID: 4588730824864099966, guid: 843c02021049ac041879bb0689171552,
+        type: 3}
+      propertyPath: lightPlayer
+      value: 
+      objectReference: {fileID: 1730981718}
+    - target: {fileID: 4588730824864099967, guid: 843c02021049ac041879bb0689171552,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588730824864099967, guid: 843c02021049ac041879bb0689171552,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588730824864099967, guid: 843c02021049ac041879bb0689171552,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588730826518036486, guid: 843c02021049ac041879bb0689171552,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 843c02021049ac041879bb0689171552, type: 3}
 --- !u!1001 &7962442312519074337
@@ -4570,20 +4601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flama
       objectReference: {fileID: 0}
-    - target: {fileID: 8194155713870605775, guid: 7d0b9e9be52e6b844baf9c1ae7a5bae4,
+    - target: {fileID: 8194155713870605763, guid: 7d0b9e9be52e6b844baf9c1ae7a5bae4,
         type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194155713870605775, guid: 7d0b9e9be52e6b844baf9c1ae7a5bae4,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.65381247
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194155713870605775, guid: 7d0b9e9be52e6b844baf9c1ae7a5bae4,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.34509802
-      objectReference: {fileID: 0}
+      propertyPath: lightPlayer
+      value: 
+      objectReference: {fileID: 1730981718}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d0b9e9be52e6b844baf9c1ae7a5bae4, type: 3}
