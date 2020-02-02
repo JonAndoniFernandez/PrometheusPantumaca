@@ -52,8 +52,8 @@ public class BonfireScript : MonoBehaviour
         }
 
         transform.position = playerTarget.position;
-        transform.GetChild(0).localScale = new Vector3(31, 31, 31);
-        transform.localScale = new Vector3(0.488f, 0.488f, 0);
+        transform.GetChild(0).localScale = new Vector3(10, 10, 10);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0);
         playerTarget.GetComponentInParent<PlayerController>().grabbingBonfire = true;
         playerDetected = playerTarget;
         pressToInteractUI.active = false;
