@@ -33,4 +33,14 @@ public class GameOver : MonoBehaviour
     {
         Application.LoadLevel(Application.loadedLevel);
     }
+
+    public void NextLevel()
+    {
+        anim.Play("EndLevel");
+    }
+
+    public void CargarSiguienteNivel(int sceneIndex)
+    {
+        Application.LoadLevel(sceneIndex);
+    }
 }

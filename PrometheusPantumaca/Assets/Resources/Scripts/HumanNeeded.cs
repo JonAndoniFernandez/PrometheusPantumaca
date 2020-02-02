@@ -5,7 +5,7 @@ using UnityEngine;
 public class HumanNeeded : MonoBehaviour
 {
 
-    public bool activatedBonfire = false;
+    public bool activatedBonfire = false, rescued = false;
 
     public UnityEngine.Experimental.Rendering.Universal.Light2D Light2D;
     public Transform pressToInteractUI;
@@ -42,6 +42,18 @@ public class HumanNeeded : MonoBehaviour
             player = collision.GetComponent<PlayerController>();
             transform.Find("BrotherSoundEffect").gameObject.active = true;
             player.SetZoneSecure(true);
+            rescued = true;
+
+            HumanNeeded[] humans = FindObjectsOfType<HumanNeeded>();
+            foreach(HumanNeeded human in humans)
+            {
+                if(human.rescued != true)
+                {
+                    return;
+                }
+            }
+            GameOver gameOver = FindObjectOfType<GameOver>();
+            gameOver.NextLevel();
         }
     }
 
@@ -63,7 +75,7 @@ public class HumanNeeded : MonoBehaviour
         GetComponent<Renderer>().material.color = Color.blue;
         pressToInteractUI.gameObject.active = false;
         StartCoroutine("HumanLightAnim");
-        Light2D.color = new Color(0.5f, 1f, 1f, 1f);
+        Light2D.color = new Color(0.4009434f, 0.6652519f, 1f, 1f);
         anim.SetBool("flameGrabbed", true);
 
     }

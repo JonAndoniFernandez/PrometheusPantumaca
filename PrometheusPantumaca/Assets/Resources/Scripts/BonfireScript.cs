@@ -47,13 +47,13 @@ public class BonfireScript : MonoBehaviour
 
             transform.position = Vector3.Lerp(transform.position, playerTarget.position, Time.deltaTime * clampSpeed);
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.488f, 0.488f, 0), Time.deltaTime * clampSpeed);
-            transform.GetChild(0).localScale = Vector3.Lerp(transform.localScale, new Vector3 (31, 31 ,31 ), Time.deltaTime * clampSpeed);
+            transform.GetChild(0).localScale = Vector3.Lerp(transform.localScale, new Vector3 (35, 35 ,35 ), Time.deltaTime * clampSpeed);
             yield return null;
         }
 
         transform.position = playerTarget.position;
-        transform.GetChild(0).localScale = new Vector3(10, 10, 10);
-        transform.localScale = new Vector3(0.2f, 0.2f, 0);
+        transform.GetChild(0).localScale = new Vector3(35, 35, 35);
+        transform.localScale = new Vector3(0.488f, 0.488f, 0);
         playerTarget.GetComponentInParent<PlayerController>().grabbingBonfire = true;
         playerDetected = playerTarget;
         pressToInteractUI.active = false;
