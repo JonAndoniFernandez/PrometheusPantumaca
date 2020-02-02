@@ -65,4 +65,16 @@ public class EnemyController : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.transform.tag == "Player")
+        {
+            if(playerController.grabbingBonfire && !playerController.GetZoneSecure())
+            {
+                GameOver gameOver = FindObjectOfType<GameOver>();
+                gameOver.PlayerGameOver();
+            }
+        }
+    }
 }

@@ -40,7 +40,7 @@ public class HumanNeeded : MonoBehaviour
         if (collision.tag == "Player" && activatedBonfire)
         {
             player = collision.GetComponent<PlayerController>();
-
+            transform.Find("BrotherSoundEffect").gameObject.active = true;
             player.SetZoneSecure(true);
         }
     }
