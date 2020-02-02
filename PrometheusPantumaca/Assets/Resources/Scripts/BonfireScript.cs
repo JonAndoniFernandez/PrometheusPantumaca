@@ -9,6 +9,8 @@ public class BonfireScript : MonoBehaviour
     public Transform playerDetected;
     public Vector3 targetScale;
     public bool grabbed = false;
+    [SerializeField]
+    private Vector3 scaleFlama;
 
     private void OnTriggerStay(Collider collision)
     {
@@ -21,7 +23,7 @@ public class BonfireScript : MonoBehaviour
     IEnumerator GrabbingBonfire(Transform playerTarget)
     {
         //Vector2 target = new Vector2(playerTarget.position.x, playerTarget.position.y + 1);
-        targetScale = new Vector3 (4.5F, 4.5F, 4.5F);
+        targetScale = scaleFlama;
 
         while (Vector3.Distance(transform.position, playerTarget.position) > 0.2)
         {
