@@ -14,14 +14,18 @@ public class EnemyController : MonoBehaviour
     public PlayerController playerController;
     public GameObject enemyBlink;
 
-    private Animator enemyAnim;
+    public Animator enemyAnim;
+    public Transform spriteEnemy;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         StartPosition = transform.position;
-        //enemyAnim.GetComponent<Animator>();
+        spriteEnemy = transform.GetChild(0);
+
+
     }
 
     // Update is called once per frame
@@ -29,15 +33,35 @@ public class EnemyController : MonoBehaviour
     {
         if (playerController.grabbingBonfire && !playerController.GetZoneSecure())
         {
-            // enemyAnim.SetBool("enemyPursuit", true);
+            enemyAnim.SetBool("enemyPursuit", true);
             enemyBlink.active = true;
             Agent.SetDestination(playerController.transform.position);
+            //Rotar enemigo cuando se activa
+            Quaternion theRotation = transform.localRotation;
+            theRotation.z *= -128;
+            transform.localRotation = theRotation;
+
+            if (transform.eulerAngles.z > 180)
+                spriteEnemy.GetComponent<SpriteRenderer>().flipX = true;
+
+            else if (transform.eulerAngles.z < 180)
+                spriteEnemy.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         else
         {
+            Quaternion theRotation = transform.localRotation;
+            theRotation.z *= -128;
+            transform.localRotation = theRotation;
+
             enemyBlink.active = false;
             Agent.SetDestination(StartPosition);
+
+            if (transform.eulerAngles.z > 180)
+                spriteEnemy.GetComponent<SpriteRenderer>().flipX = true;
+
+            else if (transform.eulerAngles.z < 180)
+                spriteEnemy.GetComponent<SpriteRenderer>().flipX = false;
         }
 
     }
