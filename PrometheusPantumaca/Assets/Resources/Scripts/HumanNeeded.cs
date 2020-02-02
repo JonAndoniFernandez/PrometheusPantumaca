@@ -10,6 +10,7 @@ public class HumanNeeded : MonoBehaviour
     public UnityEngine.Experimental.Rendering.Universal.Light2D Light2D;
     public Transform pressToInteractUI;
     PlayerController player = null;
+    Animator anim;
 
     SphereCollider Collider;
 
@@ -19,6 +20,8 @@ public class HumanNeeded : MonoBehaviour
         Light2D.lightType = UnityEngine.Experimental.Rendering.Universal.Light2D.LightType.Parametric;
         pressToInteractUI = transform.GetChild(1);
         Collider = GetComponent<SphereCollider>();
+        anim = GetComponent<Animator>();
+
     }
 
     private void OnTriggerStay(Collider collision)
@@ -37,7 +40,7 @@ public class HumanNeeded : MonoBehaviour
         if (collision.tag == "Player" && activatedBonfire)
         {
             player = collision.GetComponent<PlayerController>();
-
+            transform.Find("BrotherSoundEffect").gameObject.active = true;
             player.SetZoneSecure(true);
         }
     }
@@ -61,6 +64,8 @@ public class HumanNeeded : MonoBehaviour
         pressToInteractUI.gameObject.active = false;
         StartCoroutine("HumanLightAnim");
         Light2D.color = new Color(0.5f, 1f, 1f, 1f);
+        anim.SetBool("flameGrabbed", true);
+
     }
 
     IEnumerator HumanLightAnim()

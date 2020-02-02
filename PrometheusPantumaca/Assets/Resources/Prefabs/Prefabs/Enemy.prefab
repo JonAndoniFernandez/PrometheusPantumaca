@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5181021558708614362, guid: a8ae733eb89fa894d941fc97d0e2e0c6,
+  m_Sprite: {fileID: -2455747044058278995, guid: f957d3f5f19908d448551c4f209c6e74,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,6 +113,8 @@ GameObject:
   - component: {fileID: 4559597268768219669}
   - component: {fileID: 4559597268768219671}
   - component: {fileID: 4559597268768219670}
+  - component: {fileID: 1364790998}
+  - component: {fileID: 4794101776231466777}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -146,7 +148,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.35
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -175,6 +177,37 @@ MonoBehaviour:
   pursuit: 0
   playerController: {fileID: 0}
   enemyBlink: {fileID: 4559597269099403804}
+  enemyAnim: {fileID: 4559597268656007611}
+  spriteEnemy: {fileID: 0}
+--- !u!54 &1364790998
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559597268768219673}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &4794101776231466777
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559597268768219673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2
+  m_Center: {x: 0, y: 0, z: -0.69}
 --- !u!1 &4559597269099403804
 GameObject:
   m_ObjectHideFlags: 0
