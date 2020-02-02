@@ -25,13 +25,13 @@ public class BotonDeMenu : MonoBehaviour
         switch(numBotonUI)
         {
             case 0:
-                Application.LoadLevel("PruebasBlasco");
+                Application.LoadLevel("TutorialLevel");
                 break;
             case 1:
                 Application.LoadLevel("SampleScene");
                 break;
             case 2:
-                Application.LoadLevel("MainMenu");
+                Application.Quit();
                 break;
         }
 
