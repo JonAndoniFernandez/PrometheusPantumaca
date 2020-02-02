@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
 
     public bool grabbingBonfire = false;
     public float speed;
-    Rigidbody rb;
+    public Rigidbody rb;
     public Vector3 movement;
-    public bool walk;
+    public bool walk, death = false;
     public Animator anim;
     bool SecureZone = false;
     // Start is called before the first frame update
@@ -25,12 +25,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ControlarMovimiento();
+            ControlarMovimiento();
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = movement;
+        if (!death)
+            rb.velocity = movement;
 
         if (movement != new Vector3(0, 0, 0))
             anim.SetBool("Walk", true);
