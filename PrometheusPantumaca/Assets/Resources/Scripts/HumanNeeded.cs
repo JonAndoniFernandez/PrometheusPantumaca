@@ -7,6 +7,14 @@ public class HumanNeeded : MonoBehaviour
 
     public bool activatedBonfire = false;
 
+    public UnityEngine.Experimental.Rendering.Universal.Light2D Light2D;
+
+
+    private void Start()
+    {
+        Light2D.lightType = UnityEngine.Experimental.Rendering.Universal.Light2D.LightType.Parametric;
+    }
+
     private void OnTriggerStay(Collider collision)
     {
         if (collision.tag == "Player" && activatedBonfire == false)
@@ -32,5 +40,6 @@ public class HumanNeeded : MonoBehaviour
     {
         activatedBonfire = true;
         GetComponent<Renderer>().material.color = Color.blue;
+        Light2D.color = new Color(0.5f, 1f, 1f, 1f);
     }
 }
